@@ -35,3 +35,4 @@ Web API para consulta de pokemons.
     CREATE USER AdminPokedex FOR LOGIN AdminPokedex;
     ALTER ROLE db_owner ADD MEMBER AdminPokedex;
     ```
+-   Ejecutar script ``` databaseInit.sql ``` de la carpeta database ubicado en esta solucion, el script contiene la creacion de las tablas de la base de datos y la data del mismo.
