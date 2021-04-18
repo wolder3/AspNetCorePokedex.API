@@ -15,8 +15,23 @@ Web API para consulta de pokemons.
 
 -   Visual Studio 2019 (v16.8+) 
 
--   Instalar el ultimo [.NET & EF CLI Tools](https://docs.microsoft.com/en-us/ef/core/cli/dotnet) by using this command :
+-   Instalar el ultimo [.NET & EF CLI Tools](https://docs.microsoft.com/en-us/ef/core/cli/dotnet) puede usar este comando :
 
     ```.NET Core CLI
     dotnet tool install --global dotnet-ef
+    ```
+-   Crear la base de datos
+
+    ```
+    CREATE DATABASE dbpokedex
+    ```
+-   Crear usuario para conexion
+
+    ```
+    CREATE LOGIN AdminPokedex WITH PASSWORD = 'StKRV6MR6A'
+    GO
+    USE dbpokedex
+    GO
+    CREATE USER AdminPokedex FOR LOGIN AdminPokedex;
+    ALTER ROLE db_owner ADD MEMBER AdminPokedex;
     ```
