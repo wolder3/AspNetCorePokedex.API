@@ -29,8 +29,7 @@ namespace AspNetCorePokedex.Infrastructure.Data.Configurations
             builder.Property(e => e.Speed).HasColumnName("speed");
 
             builder.HasOne(d => d.Pokemon)
-                .WithMany(p => p.Bases)
-                .HasForeignKey(d => d.PokemonId)
+                .WithOne(p => p.Bases)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_base_pokemon");
         }

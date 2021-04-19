@@ -7,6 +7,7 @@ Web API para consulta de pokemons.
 -   [ASP.NET Core 5.0 MVC](https://dotnet.microsoft.com/learn/aspnet/what-is-aspnet-core)
 -   ASP.NET Core 5.0 WebAPI
 -   [Entity Framework Core 5.0](https://docs.microsoft.com/en-us/ef/core/)
+-   OpenAPI (Swagger)
 
 
 ### Prerequisitos
@@ -35,4 +36,8 @@ Web API para consulta de pokemons.
     CREATE USER AdminPokedex FOR LOGIN AdminPokedex;
     ALTER ROLE db_owner ADD MEMBER AdminPokedex;
     ```
--   Ejecutar script ``` databaseInit.sql ``` de la carpeta database ubicado en esta solucion, el script contiene la creacion de las tablas de la base de datos y la data del mismo.
+-   Ejecutar script ``` databaseInit.sql ``` de la carpeta ```database``` ubicado en esta solucion, el script contiene la creacion de las tablas de la base de datos y la data del mismo.
+
+### Modificacion de conexion a base de datos
+
+-   Ya realizado lo anterior debera cambiar la cadena de conexion en el archivo ``` appsettings.json ``` y en la seccion de ```PokedexSQLConnection```

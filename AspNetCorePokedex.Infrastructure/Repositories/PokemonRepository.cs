@@ -23,12 +23,18 @@ namespace AspNetCorePokedex.Infrastructure.Repositories
 
         public async Task<List<Pokemon>> GetListAsync()
         {
-            return await _context.Pokemons.ToListAsync();
+            return await _context.Pokemons.Include(x=>x.Bases).ToListAsync();
         }
 
         public async Task<List<Pokemon>> GetListByNameAsync(string pokemonName)
         {
-            return await _context.Pokemons.Where(x => x.Name.ToUpper().Contains(pokemonName.ToUpper())).ToListAsync();
+            if (!string.IsNullOrEmpty(pokemonName))
+           
+                return await _context.Pokemons.Where(x => x.Name.ToUpper().Contains(pokemonName.ToUpper())).Include(x => x.Bases).ToListAsync();
+            else
+                return await _context.Pokemons.Include(x => x.Bases).ToListAsync();
+
+
         }
     }
 }

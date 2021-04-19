@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
- 
+using System;
 
 namespace AspNetCorePokedex.Api.Extensions
 {
@@ -14,6 +14,7 @@ namespace AspNetCorePokedex.Api.Extensions
         {
             services.RegisterSwagger();
             services.AddVersioning();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         private static void RegisterSwagger(this IServiceCollection services)

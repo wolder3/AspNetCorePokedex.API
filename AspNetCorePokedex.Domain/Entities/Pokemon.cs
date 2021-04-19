@@ -6,14 +6,14 @@ namespace AspNetCorePokedex.Domain.Entities
     {
         public Pokemon()
         {
-            Bases = new HashSet<Base>();
+            Bases = new Base();
             PokemonTypes = new HashSet<PokemonType>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Base> Bases { get; set; }
+        public virtual Base Bases { get; set; }
         public virtual ICollection<PokemonType> PokemonTypes { get; set; }
     }
 }

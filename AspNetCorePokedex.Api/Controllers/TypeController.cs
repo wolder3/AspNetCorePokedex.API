@@ -1,4 +1,6 @@
-﻿using AspNetCorePokedex.Application.Interfaces.Repositories;
+﻿using AspNetCorePokedex.Application.DTO;
+using AspNetCorePokedex.Application.Interfaces.Repositories;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,16 +13,19 @@ namespace AspNetCorePokedex.Api.Controllers
     public class TypeController : BaseApiController<TypeController>
     {
         private readonly ITypeRepository _typeRepository;
-        public TypeController(ITypeRepository typeRepository)
+        private readonly IMapper _mapper;
+        public TypeController(ITypeRepository typeRepository, IMapper mapper)
         {
             _typeRepository = typeRepository;
+            _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetAll(int id)
         {
             var Types = await _typeRepository.GetListByIdPokemonAsync(id);
-            return Ok(Types);
+            var TypesDTO = _mapper.Map<List<TypeDTO>>(Types);
+            return Ok(TypesDTO);
         }
     }
 }
