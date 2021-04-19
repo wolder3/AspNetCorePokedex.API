@@ -8,7 +8,7 @@ Web API para consulta de pokemons.
 -   ASP.NET Core 5.0 WebAPI
 -   [Entity Framework Core 5.0](https://docs.microsoft.com/en-us/ef/core/)
 -   OpenAPI (Swagger)
-
+-   Base de datos SQL Server, utilizando EntityFramework
 
 ### Prerequisitos
 
@@ -41,3 +41,7 @@ Web API para consulta de pokemons.
 ### Modificacion de conexion a base de datos
 
 -   Ya realizado lo anterior debera cambiar la cadena de conexion en el archivo ``` appsettings.json ``` y en la seccion de ```PokedexSQLConnection```
+
+### En ejecucion
+
+-   Cuando se haya iniciado la aplicacion la aplicacion le mostrara los end points del web api documentado con Swagger, para la ejecucion en el mismo le pedira la version del web API que en este caso por defecto esta en ```1```
